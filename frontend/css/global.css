@@ -1,0 +1,66 @@
+/* 1. VARIÁVEIS DE CORES E TEMA */
+:root {
+  /* Cores de Fundo (Backgrounds) */
+  --bg-primary: #0a0a0a;       /* Fundo geral da aplicação */
+  --bg-sidebar: #121212;       /* Fundo da sidebar */
+  --bg-card: #18181b;          /* Fundo de caixas e inputs */
+  
+  /* Cores de Texto */
+  --text-primary: #ffffff;     /* Texto principal */
+  --text-secondary: #a1a1aa;   /* Texto secundário e placeholders */
+  --text-muted: #71717a;       /* Texto suave e inativo */
+
+  /* Cores de Bordas e Divisores */
+  --border-color: #27272a;     /* Bordas discretas */
+  --border-hover: #3f3f46;     /* Borda ao passar o mouse */
+
+  /* Cores de Ação e Destaque (Accent) */
+  --accent-primary: #6366f1;   /* Destaque principal */
+  --accent-success: #22c55e;   /* Verde (Iniciar) */
+  --accent-warning: #eab308;   /* Amarelo (Pausar) */
+  --accent-danger: #ef4444;    /* Vermelho (Zerar) */
+}
+
+/* 2. RESET GLOBAL E BASE DA TELA */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 3. ESTRUTURA PRINCIPAL (LAYOUT) */
+.app-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 4. BARRA LATERAL (SIDEBAR) */
+.sidebar-container {
+  width: 260px;
+  height: 100%;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-color);
+  background-color: var(--bg-sidebar);
+}
+
+/* 5. ÁREA PRINCIPAL (MAIN) */
+.main-container {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px;
+}

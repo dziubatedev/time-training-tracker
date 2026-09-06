@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link to Styles (voltando uma pasta para achar a css/) -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    
+    <title>Time Training Tracker</title>
+</head>
+<body>
+    
+    <!-- Wrapper principal para segurar a Sidebar e o Main lado a lado -->
+    <div class="app-layout">
+
+        <!-- 1. Sidebar (Barra Lateral) -->
+        <aside class="sidebar-container">
+            <!-- Conteúdo da sidebar entrará aqui futuramente -->
+        </aside>
+
+        <!-- 2. Conteúdo Principal (Área do Timer) -->
+        <main class="main-container">
+            
+            <div class="title-container">
+                <h1>Timer</h1>
+            </div>
+
+            <!-- Select Container -->
+            <div class="select-container">
+                <select id="category" class="custom-select" required>
+                    <!-- Opção que funciona como Placeholder -->
+                    <option value="" disabled selected hidden>Select a category...</option>
+                    
+                    <!-- Opções da lista -->
+                    <option value="estudos">Estudos</option>
+                    <option value="trabalho">Trabalho</option>
+                    <option value="projetos">Projetos</option>
+                </select>
+            </div>
+
+            <!-- Timer Container -->
+            <div class="timer-container">
+                <div id="display" class="timer-display">00:00:00</div>
+            
+                <div class="timer-controls">
+                    <button id="startBtn" class="btn btn-start">Iniciar</button>
+                    <button id="pauseBtn" class="btn btn-pause" disabled>Pausar</button>
+                    <button id="stopBtn" class="btn btn-stop" disabled>Zerar</button>
+                </div>
+            </div>
+
+            <div class="task-input-container">
+                <input 
+                    type="text" 
+                    id="taskDescription" 
+                    class="task-input" 
+                    placeholder="What are you working on?" 
+                    autocomplete="off">
+            </div>
+
+            <!-- Entry Management Buttons -->
+            <div class="entry-actions">
+                <button id="addEntryBtn" class="btn btn-save" disabled>Add entry manually</button>
+                <button id="viewEntriesBtn" class="btn btn-save" disabled>View today's entries</button>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Timer Script (voltando uma pasta para achar a js/) -->
+    <script src="../js/timer.js"></script>
+
+</body>
+</html>
