@@ -1,77 +1,103 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Link to Styles (voltando uma pasta para achar a css/) -->
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/components.css">
-    
-    <title>Time Training Tracker</title>
+  <meta charset="UTF-8">
+  <title>Time Training Tracker</title>
+  <!-- Importando os Ícones Minimalistas -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
 </head>
 <body>
+
+  <!-- App Wrapper para dividir Sidebar e Main -->
+  <div class="app-layout">
     
-    <!-- Wrapper principal para segurar a Sidebar e o Main lado a lado -->
-    <div class="app-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="ph ph-clock logo-icon"></i>
+        <span class="logo-text">Time Tracker</span>
+      </div>
+      
+      <!-- Navegação Principal -->
+      <nav class="sidebar-nav">
+        <ul class="nav-list">
+          <li class="nav-item active">
+            <a href="#"><i class="ph ph-timer"></i> Timer</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="ph ph-squares-four"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="ph ph-list-dashes"></i> Entries</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="ph ph-tag"></i> Categories</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="ph ph-git-branch"></i> Planner</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="ph ph-file-text"></i> Reports</a>
+          </li>
+        </ul>
+      </nav>
 
-        <!-- 1. Sidebar (Barra Lateral) -->
-        <aside class="sidebar-container">
-            <!-- Conteúdo da sidebar entrará aqui futuramente -->
-        </aside>
+      <!-- Navegação Secundária (Rodapé da Sidebar) -->
+      <div class="sidebar-footer">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#"><i class="ph ph-arrow-line-left"></i> Collapse</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="ph ph-sun"></i> Light mode</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="ph ph-gear"></i> Settings</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
 
-        <!-- 2. Conteúdo Principal (Área do Timer) -->
-        <main class="main-container">
-            
-            <div class="title-container">
-                <h1>Timer</h1>
-            </div>
+    <!-- O SEU CÓDIGO DO TIMER CONTINUA AQUI INTACTO -->
+    <main class="main-container">
+      <div class="header-group">
+        <h1 class="page-title">Timer</h1>
+        <span class="sub-text">9s today</span>
+      </div>
 
-            <!-- Select Container -->
-            <div class="select-container">
-                <select id="category" class="custom-select" required>
-                    <!-- Opção que funciona como Placeholder -->
-                    <option value="" disabled selected hidden>Select a category...</option>
-                    
-                    <!-- Opções da lista -->
-                    <option value="estudos">Estudos</option>
-                    <option value="trabalho">Trabalho</option>
-                    <option value="projetos">Projetos</option>
-                </select>
-            </div>
+      <div class="category-row">
+        <div class="select-wrapper">
+          <span class="category-dot"></span>
+          <select id="category" class="custom-select">
+            <option value="english">English and miscellaneous</option>
+            <option value="estudos">Estudos</option>
+          </select>
+        </div>
+        <button type="button" class="btn-templates">Templates</button>
+      </div>
 
-            <!-- Timer Container -->
-            <div class="timer-container">
-                <div id="display" class="timer-display">00:00:00</div>
-            
-                <div class="timer-controls">
-                    <button id="startBtn" class="btn btn-start">Iniciar</button>
-                    <button id="pauseBtn" class="btn btn-pause" disabled>Pausar</button>
-                    <button id="stopBtn" class="btn btn-stop" disabled>Zerar</button>
-                </div>
-            </div>
+      <div class="timer-display" id="display">00:00:00</div>
 
-            <div class="task-input-container">
-                <input 
-                    type="text" 
-                    id="taskDescription" 
-                    class="task-input" 
-                    placeholder="What are you working on?" 
-                    autocomplete="off">
-            </div>
+      <div class="input-group">
+        <input type="text" id="taskDescription" class="task-input" placeholder="What are you working on?" autocomplete="off">
+        <div class="divider"></div>
+      </div>
 
-            <!-- Entry Management Buttons -->
-            <div class="entry-actions">
-                <button id="addEntryBtn" class="btn btn-save" disabled>Add entry manually</button>
-                <button id="viewEntriesBtn" class="btn btn-save" disabled>View today's entries</button>
-            </div>
+      <div class="action-container">
+        <button id="toggleBtn" class="btn-timer btn-start">Start timer</button>
+      </div>
 
-        </main>
+      <div class="footer-links">
+        <a href="#">Add entry manually</a>
+        <span class="dot-separator">·</span>
+        <a href="#">View today's entries</a>
+      </div>
+    </main>
 
-    </div>
+  </div>
 
-    <!-- Timer Script (voltando uma pasta para achar a js/) -->
-    <script src="../js/timer.js"></script>
-
+  <script src="../js/timer.js"></script>
 </body>
 </html>

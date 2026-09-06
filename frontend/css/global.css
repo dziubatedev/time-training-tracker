@@ -5,6 +5,7 @@
   --bg-sidebar: #121212;       /* Fundo da sidebar */
   --bg-card: #18181b;          /* Fundo de caixas e inputs */
   
+  
   /* Cores de Texto */
   --text-primary: #ffffff;     /* Texto principal */
   --text-secondary: #a1a1aa;   /* Texto secundário e placeholders */
@@ -19,6 +20,10 @@
   --accent-success: #22c55e;   /* Verde (Iniciar) */
   --accent-warning: #eab308;   /* Amarelo (Pausar) */
   --accent-danger: #ef4444;    /* Vermelho (Zerar) */
+}
+
+:root {
+  color-scheme: dark;
 }
 
 /* 2. RESET GLOBAL E BASE DA TELA */

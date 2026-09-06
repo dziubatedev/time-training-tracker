@@ -1,0 +1,322 @@
+/* Importação de fonte monoespaçada parecida com a do timer */
+/* =========================================
+   1. FONTES E LAYOUT PRINCIPAL
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap');
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* =========================================
+   2. CABEÇALHO (Título e Subtítulo)
+========================================= */
+.header-group {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.sub-text {
+  font-size: 0.9rem;
+  color: #71717a;
+}
+
+/* =========================================
+   3. CATEGORIA E TEMPLATES
+========================================= */
+.category-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.select-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+.category-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #71cf8c;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.custom-select {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-templates {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* =========================================
+   4. DISPLAY DO TIMER
+========================================= */
+.timer-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin: 16px 0;
+}
+
+/* =========================================
+   5. INPUT DE TAREFA E DIVISÓRIA
+========================================= */
+.input-group {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.task-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 8px 0;
+}
+
+.task-input::placeholder {
+  color: #52525b;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #27272a;
+  margin-top: 8px;
+}
+
+/* =========================================
+   6. BOTÃO DE AÇÃO PRINCIPAL
+========================================= */
+.action-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-timer {
+  width: 220px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  border: 1px solid transparent;
+}
+
+/* Estado: Iniciar (Branco) */
+.btn-timer.btn-start {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.btn-timer.btn-start:hover {
+  background-color: #e4e4e7;
+  border-color: #e4e4e7;
+}
+
+/* Estado: Parar (Escuro/Vermelho) */
+.btn-timer.btn-stop {
+  background-color: #18181b;
+  color: #ef4444;
+  border-color: #27272a;
+}
+
+.btn-timer.btn-stop:hover {
+  background-color: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+/* =========================================
+   7. RODAPÉ (Links)
+========================================= */
+.footer-links {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #a1a1aa;
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.dot-separator {
+  color: #52525b;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   LAYOUT GERAL (DIVISÃO DE TELA)
+========================================= */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #09090b; /* Fundo super escuro padrão */
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Redefinição do Main Container para dividir o espaço com a Sidebar */
+.main-container {
+  flex: 1; /* Ocupa todo o espaço restante */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza o Timer verticalmente */
+  padding: 40px;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+.sidebar {
+  width: 250px;
+  background-color: #111112;
+  border-right: 1px solid #1f1f22;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #1f1f22;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.logo-icon {
+  font-size: 1.4rem;
+  background-color: #e4e4e7;
+  color: #000;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* Área rolável de navegação */
+.sidebar-nav {
+  flex: 1;
+  padding: 24px 12px;
+  overflow-y: auto;
+}
+
+.sidebar-footer {
+  padding: 16px 12px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Links da Sidebar */
+.nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #8ba4b5; /* Cor cinza-azulado fosco */
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-item a i {
+  font-size: 1.2rem;
+}
+
+.nav-item a:hover {
+  background-color: #1a1a1c;
+  color: #f8fafc;
+}
+
+/* Estado Ativo (Timer Selecionado) */
+.nav-item.active a {
+  background-color: #1f1f22;
+  color: #ffffff;
+}
+
+/* Filete branco na esquerda do item ativo */
+.nav-item.active a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 3px;
+  background-color: #ffffff;
+  border-radius: 0 4px 4px 0;
+}
+
+.custom-select option {
+  background-color: #18181b;
+  color: #ffffff;
+}

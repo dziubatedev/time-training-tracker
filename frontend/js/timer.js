@@ -1,58 +1,48 @@
-let timerInterval = null;
-let startTime = 0;
-let elapsedTime = 0;
-
-// Seleção dos elementos do DOM
+// Seleção dos elementos do HTML
+const toggleBtn = document.getElementById('toggleBtn');
 const display = document.getElementById('display');
-const startBtn = document.getElementById('startBtn');
-const pauseBtn = document.getElementById('pauseBtn');
-const stopBtn = document.getElementById('stopBtn');
+const taskInput = document.getElementById('taskDescription');
 
-// Formata milissegundos para HH:MM:SS
-function formatTime(ms) {
-  const totalSeconds = Math.floor(ms / 1000);
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
+let timerInterval = null;
+let seconds = 0;
+let isRunning = false;
 
-  const pad = (num) => String(num).padStart(2, '0');
-  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+// Função para formatar o tempo (00:00:00)
+function formatTime(totalSeconds) {
+  const hrs = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+  const mins = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+  const secs = String(totalSeconds % 60).padStart(2, '0');
+  return `${hrs}:${mins}:${secs}`;
 }
 
-function startTimer() {
-  startTime = Date.now() - elapsedTime;
-  
-  timerInterval = setInterval(() => {
-    elapsedTime = Date.now() - startTime;
-    display.textContent = formatTime(elapsedTime);
-  }, 1000);
+// Alterna entre Iniciar e Parar
+toggleBtn.addEventListener('click', () => {
+  isRunning = !isRunning;
 
-  // Ajusta estado dos botões
-  startBtn.disabled = true;
-  pauseBtn.disabled = false;
-  stopBtn.disabled = false;
-}
+  if (isRunning) {
+    // Estado: Rodando (Stop timer)
+    toggleBtn.textContent = 'Stop timer';
+    toggleBtn.classList.remove('btn-start');
+    toggleBtn.classList.add('btn-stop');
 
-function pauseTimer() {
-  clearInterval(timerInterval);
-  
-  startBtn.disabled = false;
-  pauseBtn.disabled = true;
-  startBtn.textContent = 'Continuar';
-}
+    timerInterval = setInterval(() => {
+      seconds++;
+      display.textContent = formatTime(seconds);
+    }, 1000);
+  } else {
+    // Estado: Parado (Start timer)
+    toggleBtn.textContent = 'Start timer';
+    toggleBtn.classList.remove('btn-stop');
+    toggleBtn.classList.add('btn-start');
 
-function stopTimer() {
-  clearInterval(timerInterval);
-  elapsedTime = 0;
-  display.textContent = '00:00:00';
+    // 1. Para o contador
+    clearInterval(timerInterval);
+    
+    // 2. Reseta o tempo para zero
+    seconds = 0;
+    display.textContent = formatTime(seconds);
 
-  startBtn.disabled = false;
-  pauseBtn.disabled = true;
-  stopBtn.disabled = true;
-  startBtn.textContent = 'Iniciar';
-}
-
-// Event Listeners
-startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
-stopBtn.addEventListener('click', stopTimer);
+    // 3. Limpa o campo de entrada
+    taskInput.value = '';
+  }
+});
